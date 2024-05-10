@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+/* Section Titles */
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Input Styles */
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #555;
+}
+
+input[type="number"], select, input[type="text"] {
+  width: calc(100% - 22px); /* Adjusted width to accommodate padding */
+  padding: 10px;
+  margin-bottom: 10px; /* Added margin bottom */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus, select:focus, input[type="text"]:focus {
+  border-color: #4CAF50;
+}
+
+/* Button Styles */
+.btn-cluster, .btn-predict, .btn-visualize, .btn-calculate {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cluster:hover, .btn-predict:hover, .btn-visualize:hover, .btn-calculate:hover {
+  background-color: #45a049;
+}
+
+/* Results Section */
+.results {
+  margin-top: 20px;
+}
+
+.results h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.results p {
+  margin: 0;
+}
+
+.results ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results li {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* Calculation Section */
+.calculation-section {
+  margin-top: 20px;
+}
+
+.calculation-section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Advanced Effects */
+.container {
+  transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cluster, .btn-predict, .btn-visualize, .btn-calculate {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-cluster, .btn-predict, .btn-visualize, .btn-calculate {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+

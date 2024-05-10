@@ -1,0 +1,114 @@
+<div class="container">
+  <header class="header">
+    <h1>Drug Response Analysis</h1>
+  </header>
+  
+  <div class="cluster-section">
+    <h2>Clustering</h2>
+    <!-- Clustering input fields -->
+    <div class="input-container">
+      <label for="features">Select Features:</label>
+      <select id="features" [(ngModel)]="features" multiple>
+        <option value="IC50">IC50</option>
+        <option value="IC90">IC90</option>
+        <option value="EC50">EC50</option>
+        <option value="Einf">Einf</option>
+        <option value="AUC">AUC</option>
+      </select>
+    </div>
+    <div class="input-container">
+      <label for="nClusters">Number of Clusters:</label>
+      <input type="number" id="nClusters" [(ngModel)]="nClusters">
+    </div>
+    <button class="btn-cluster" (click)="clusterData()">Cluster Data</button>
+    
+    <!-- Display clustering results -->
+    <div *ngIf="clusters" class="results">
+      <h3>Clustering Results:</h3>
+      <ul>
+        <li *ngFor="let cluster of clusters">Cluster: {{ cluster }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prediction-section">
+    <h2>Cancer Prediction</h2>
+    <!-- Input field for cancer type -->
+    <div class="input-container">
+      <label for="cancerType">Enter Cancer Type:</label>
+      <input type="text" id="cancerType" [(ngModel)]="cancerType">
+    </div>
+    <!-- Cancer prediction button -->
+    <button class="btn-predict" (click)="predictCancer(cancerType)">Predict Cancer</button>
+    
+    <!-- Display prediction results -->
+    <div *ngIf="predictionResult" class="results">
+      <h3>Prediction Result:</h3>
+      <p>{{ predictionResult }}</p>
+    </div>
+  </div>
+
+  <div class="prediction-section">
+    <h2>Sensitivity Prediction</h2>
+    <!-- Input field for target variable -->
+    <div class="input-container">
+      <label for="targetVariable">Enter Target Variable:</label>
+      <input type="text" id="targetVariable" [(ngModel)]="targetVariable">
+    </div>
+    <!-- Sensitivity prediction button -->
+    <button class="btn-predict" (click)="predictSensitivity(targetVariable)">Predict Sensitivity</button>
+    <!-- Display prediction results -->
+    <div *ngIf="sensitivityPredictionResult" class="results">
+      <h3>Sensitivity Prediction Result:</h3>
+      <p>MSE: {{ sensitivityPredictionResult.mse }}</p>
+      <p>Predictions: {{ sensitivityPredictionResult.predictions }}</p>
+    </div>
+  </div>
+
+  <div class="prediction-section">
+    <h2>Calculate Combined Response</h2>
+    <div class="input-container">
+      <label for="method">Method:</label>
+      <input type="text" id="method" [(ngModel)]="method">
+    </div>
+    <div class="input-container">
+      <label for="drugs">Drugs:</label>
+      <input type="text" id="drugs" [(ngModel)]="drugs" placeholder="Enter two drugs separated by a comma">
+    </div>
+    <button class="btn-calculate" (click)="calculateCombinedResponse()">Calculate</button>
+    
+    <!-- Display results -->
+    <div *ngIf="results" class="results">
+      <h3>Results:</h3>
+      <ul>
+        <li *ngFor="let result of results">{{ result.drugs.join(' + ') }}: {{ result.combined_response }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="visualization-section">
+    <h2>Data Visualization</h2>
+    <!-- Input fields for cancer type and attribute -->
+    <div class="input-container">
+      <label for="cancerType">Enter Cancer Type:</label>
+      <input type="text" id="cancerType" [(ngModel)]="cancerType">
+    </div>
+    <div class="input-container">
+      <label for="attribute">Enter Attribute:</label>
+      <input type="text" id="attribute" [(ngModel)]="attribute">
+    </div>
+    <!-- Button to trigger data visualization -->
+    <button class="btn-visualize" (click)="visualizeData()">Visualize Data</button>
+    <!-- Display visualization results -->
+    <div *ngIf="visualizationData" class="results">
+      <h3>Visualization Results:</h3>
+      <!-- Display the base64-encoded image -->
+      <img [src]="'data:image/png;base64,' + visualizationData" alt="Visualization">
+    </div>
+  </div>
+  
+  
+  <footer class="footer">
+    <p>&copy; 2024 Drug Response Analysis. All rights reserved.</p>
+  </footer>
+</div>
+
